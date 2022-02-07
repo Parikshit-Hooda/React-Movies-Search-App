@@ -11,7 +11,7 @@ const Movie = ({ title, poster_path, overview, vote_average }) => {
     } else {
       return "red";
     }
-  };
+  }; //used to give color to text like 8.4 is green, 7.4 is orange, etc.
 
   return (
     <div className="movie">
