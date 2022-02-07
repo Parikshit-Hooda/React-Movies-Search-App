@@ -8,6 +8,7 @@ const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${APIKEY}
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const getMovies = (API) => {
     fetch(API)
@@ -21,6 +22,17 @@ function App() {
 
   return (
     <>
+      <header>
+        <form>
+          <input
+            type="search"
+            className="search"
+            placeholder="Search..."
+            value={searchTerm}
+          />
+        </form>
+      </header>
+
       <div className="movie-container">
         {movies.length > 0 &&
           movies.map((movie) => <Movie key={movie.id} {...movie} />)}
