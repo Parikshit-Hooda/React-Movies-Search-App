@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useState, useEffect } from "react";
+import Movie from "./components/Movie";
 import "./styles.css";
-import App from "./App";
+import { APIKEY } from "..apiKey.js";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${APIKEY}`;
+const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${APIKEY}=`;
+
+function App() {}
+
+export default App;
