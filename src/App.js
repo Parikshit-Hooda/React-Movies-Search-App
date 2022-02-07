@@ -16,6 +16,19 @@ function App() {
       .then((data) => setMovies(data.results));
   };
 
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+
+    if (searchTerm) {
+      getMovies(`${SEARCH_API}${searchTerm}`);
+      setSearchTerm("");
+    }
+  };
+
+  const handleOnChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   useEffect(() => {
     getMovies(FEATURED_API);
   }, []);
@@ -23,12 +36,13 @@ function App() {
   return (
     <>
       <header>
-        <form>
+        <form onSubmit={handleOnSubmit}>
           <input
             type="search"
             className="search"
             placeholder="Search..."
             value={searchTerm}
+            onChange={handleOnChange}
           />
         </form>
       </header>
